@@ -48,7 +48,9 @@ Assuming this is successful, the user is Authenticated.
 %make
 
 %check
+%if %{!?_without_test:1}%{?_without_test:0}
 %__make test
+%endif
 
 %install
 rm -rf %{buildroot}
