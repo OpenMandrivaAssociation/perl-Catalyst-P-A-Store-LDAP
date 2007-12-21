@@ -24,6 +24,7 @@ BuildRequires:	perl(Test::More)
 Provides:	perl-%realname
 Obsoletes:	perl-%realname
 BuildArch:	noarch
+Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 This plugin uses Net::LDAP to let your application authenticate against an LDAP
