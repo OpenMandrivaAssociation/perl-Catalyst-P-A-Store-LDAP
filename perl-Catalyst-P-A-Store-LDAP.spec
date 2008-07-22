@@ -4,7 +4,7 @@
 %define	modprefix Catalyst
 
 %define version 0.04
-%define release %mkrel 5
+%define release %mkrel 7
 
 Summary:	Catalyst - Authentication from an LDAP Directory
 Name:		%{name}
