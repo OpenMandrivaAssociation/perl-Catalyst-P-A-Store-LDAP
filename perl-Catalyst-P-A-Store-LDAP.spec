@@ -1,10 +1,12 @@
+%define _without_test 1
+
 %define realname Catalyst-Plugin-Authentication-Store-LDAP
 %define abbrevname Catalyst-P-A-Store-LDAP
 %define name perl-%abbrevname
 %define	modprefix Catalyst
 
 %define version 0.04
-%define release %mkrel 7
+%define release %mkrel 8
 
 Summary:	Catalyst - Authentication from an LDAP Directory
 Name:		%{name}
