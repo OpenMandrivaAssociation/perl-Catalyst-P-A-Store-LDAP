@@ -1,21 +1,17 @@
-%define _without_test 1
+%define upstream_name    Catalyst-Plugin-Authentication-Store-LDAP
+%define abbrev_name      Catalyst-P-A-Store-LDAP
+%define upstream_version 0.0602
 
-%define realname Catalyst-Plugin-Authentication-Store-LDAP
-%define abbrevname Catalyst-P-A-Store-LDAP
-%define name perl-%abbrevname
-%define	modprefix Catalyst
-
-%define version 0.04
-%define release %mkrel 8
+Name:		perl%{abbrev_name}
+Version:	%perl_convert_version %{upstream_version}
+Release:	%mkrel 1
 
 Summary:	Catalyst - Authentication from an LDAP Directory
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
 License:	Artistic/GPL
 Group:		Development/Perl
-URL:		http://search.cpan.org/dist/%{realname}/
-Source:		ftp://ftp.perl.org/pub/CPAN/modules/by-module/%{modprefix}/%{realname}-%{version}.tar.bz2
+URL:		http://search.cpan.org/dist/%{upstream_name}/
+Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/Catalyst/%{upstream_name}-%{upstream_version}.tar.gz
+
 %if %{mdkversion} < 1010
 BuildRequires:	perl-devel
 %endif
@@ -23,10 +19,10 @@ BuildRequires:	perl(Catalyst::Plugin::Authentication)
 BuildRequires:	perl(Class::Accessor::Fast)
 BuildRequires:	perl(Net::LDAP)
 BuildRequires:	perl(Test::More)
-Provides:	perl-%realname
-Obsoletes:	perl-%realname
 BuildArch:	noarch
-Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}
+Provides:	perl-%upstream_name
+Obsoletes:	perl-%upstream_name
 
 %description
 This plugin uses Net::LDAP to let your application authenticate against an LDAP
@@ -43,16 +39,14 @@ in the "binddn" and "bindpw" configuration options.
 Assuming this is successful, the user is Authenticated.
 
 %prep
-%setup -q -n %{realname}-%{version}
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %__perl Makefile.PL INSTALLDIRS=vendor
 %make
 
 %check
-%if %{!?_without_test:1}%{?_without_test:0}
-%__make test
-%endif
+#%__make test
 
 %install
 rm -rf %{buildroot}
@@ -61,7 +55,7 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root)
 %doc TODO Changes
-%{perl_vendorlib}/%{modprefix}
+%{perl_vendorlib}/Catalyst
 %{_mandir}/*/*
 
 %clean
