@@ -15,6 +15,7 @@ Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/Catalyst/%{upstream_name}
 %if %{mdkversion} < 1010
 BuildRequires:	perl-devel
 %endif
+BuildRequires:	perl(Catalyst::Model::LDAP)
 BuildRequires:	perl(Catalyst::Plugin::Authentication)
 BuildRequires:	perl(Class::Accessor::Fast)
 BuildRequires:	perl(Net::LDAP)
