@@ -2,7 +2,7 @@
 %define abbrev_name      Catalyst-P-A-Store-LDAP
 %define upstream_version 0.0602
 
-Name:		perl%{abbrev_name}
+Name:		perl-%{abbrev_name}
 Version:	%perl_convert_version %{upstream_version}
 Release:	%mkrel 1
 
