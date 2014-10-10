@@ -4,7 +4,7 @@
 
 Name:		perl-%{abbrev_name}
 Version:	%perl_convert_version %{upstream_version}
-Release:	3
+Release:	4
 
 Summary:	Catalyst - Authentication from an LDAP Directory
 License:	Artistic/GPL
